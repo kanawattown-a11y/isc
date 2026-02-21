@@ -24,6 +24,7 @@ export const contactMessages = pgTable("contact_messages", {
   phone: text("phone").notNull(),
   subject: text("subject").notNull(),
   message: text("message").notNull(),
+  identityImageUrl: text("identity_image_url").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 

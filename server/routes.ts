@@ -7,6 +7,11 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+  // Handle OPTIONS requests for CORS preflight
+  app.options("/api/contact", (req, res) => {
+    res.status(200).end();
+  });
+
   app.post("/api/contact", async (req, res) => {
     try {
       const validatedData = insertContactMessageSchema.parse(req.body);
